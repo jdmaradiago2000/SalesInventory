@@ -1,0 +1,72 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jmara\\source\\repos\\SalesInventory\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5F948BCD-959A-411D-8BD3-1F1260043F35}|Client\\SalesInventory.Client.csproj|c:\\users\\jmara\\source\\repos\\salesinventory\\client\\pages\\header.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F948BCD-959A-411D-8BD3-1F1260043F35}|Client\\SalesInventory.Client.csproj|solutionrelative:client\\pages\\header.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F948BCD-959A-411D-8BD3-1F1260043F35}|Client\\SalesInventory.Client.csproj|c:\\users\\jmara\\source\\repos\\salesinventory\\client\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F948BCD-959A-411D-8BD3-1F1260043F35}|Client\\SalesInventory.Client.csproj|solutionrelative:client\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A3B4002-4CC9-493E-A262-A20A2308EE54}|Shared\\SalesInventory.Shared.csproj|c:\\users\\jmara\\source\\repos\\salesinventory\\shared\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A3B4002-4CC9-493E-A262-A20A2308EE54}|Shared\\SalesInventory.Shared.csproj|solutionrelative:shared\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\jmara\\source\\repos\\SalesInventory\\Client\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "Client\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\jmara\\source\\repos\\SalesInventory\\Client\\Pages\\Index.razor",
+              "RelativeToolTip": "Client\\Pages\\Index.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-23T12:32:50.477Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Header.razor",
+              "DocumentMoniker": "C:\\Users\\jmara\\source\\repos\\SalesInventory\\Client\\Pages\\Header.razor",
+              "RelativeDocumentMoniker": "Client\\Pages\\Header.razor",
+              "ToolTip": "C:\\Users\\jmara\\source\\repos\\SalesInventory\\Client\\Pages\\Header.razor",
+              "RelativeToolTip": "Client\\Pages\\Header.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-23T23:42:14.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Sale.cs",
+              "DocumentMoniker": "C:\\Users\\jmara\\source\\repos\\SalesInventory\\Shared\\Sale.cs",
+              "RelativeDocumentMoniker": "Shared\\Sale.cs",
+              "ToolTip": "C:\\Users\\jmara\\source\\repos\\SalesInventory\\Shared\\Sale.cs",
+              "RelativeToolTip": "Shared\\Sale.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T12:33:45.363Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

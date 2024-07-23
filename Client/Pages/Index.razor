@@ -1,0 +1,273 @@
+﻿@page "/"
+
+<Header />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!-- EditForm -->
+<EditForm Model="mySale">
+    <div class="row">
+        <div class="col-2">
+            <InputText @bind-Value=mySale.ClientName class="form-control" placeholder="Customer name"></InputText>
+        </div>
+        <div class="col-2">
+            <InputNumber @bind-Value=mySale.ProductPrice class="form-control" placeholder="Product Price"></InputNumber>
+        </div>
+        <div class="col-2">
+            <InputNumber @bind-Value=mySale.CashReceived class="form-control" placeholder="Cash received "></InputNumber>
+        </div>
+        <div class="col-2">
+            <InputSelect @bind-Value=mySale.Transfer class="form-control">
+                <option value=0>Cash payment</option>
+                <option value=1>Transfer payment</option>
+            </InputSelect>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-success" @onclick="()=>AddSale(mySale)">Send</button>
+        </div>
+    </div>
+</EditForm>
+
+<!-- End EditForm -->
+
+<br />
+
+<div class="row">
+    <div class="col-8">
+        <!-- ======= Table Section ======= -->
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Client Name</th>
+                    <th scope="col">Product Price</th>
+                    <th scope="col">Cash Back</th>
+                    <th scope="col">Payment type</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sale in Sales)
+                {
+                    <tr>
+                        <td>@sale.Id</td>
+                        <td>@sale.Date</td>
+                        <td>@sale.ClientName</td>
+                        <td>@sale.ProductPrice</td>
+                        <td>@sale.CashBack</td>
+                        @if(sale.Transfer == 0)
+                        {
+                            <td>Cash</td>
+                        }
+                        else
+                        {
+                            <td>Transfer</td>
+                        }
+                        <td>
+                            <!-- Button trigger modal -->
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" @onclick="()=>EditSale(sale)">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalDelete" @onclick="()=>CallToDelete(sale)">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table><!-- End Table Section -->
+    </div>
+
+    <div class="col-4">
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services section-bg">
+            <div class="container">
+
+                <div class="row" style="display:flex; justify-content:center">
+                    <div class="col-lg-12">
+                        <div class="row" style="display:flex; justify-content:center">
+                            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" style="display:flex; justify-content:center">
+                                <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                                    <div class="icon"><i class="bx bx-file"></i></div>
+                                    <h4><a href="">Summary</a></h4>
+                                    <p>Total Cash: @TotalCash</p> <br />
+                                    <p>Value Transfers: @TotalTransfers</p> <br />
+                                    <p>Total Money: @TotalMoney</p> <br />
+                                    <p>Number of Sales: @TotalSales</p> <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Services Section -->
+    </div>
+</div>
+
+<!-- Modal Edit -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit record</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <EditForm Model="editSale">
+                    <label>Date</label>
+                    <InputDate @bind-Value=editSale.Date class="form-control" placeholder="Date" style="margin-bottom:10px"></InputDate>
+                    <label>Client name</label>
+                    <InputText @bind-Value=editSale.ClientName class="form-control" style="margin-bottom:10px"></InputText>
+                    <label>Product Price</label>
+                    <InputNumber @bind-Value=editSale.ProductPrice class="form-control" style="margin-bottom:10px"></InputNumber>
+                    <label>Cash Received</label>
+                    <InputNumber @bind-Value=editSale.CashReceived class="form-control" style="margin-bottom:10px"></InputNumber>
+                    <label>Cash Back</label>
+                    <InputNumber @bind-Value=editSale.CashBack class="form-control" style="margin-bottom:10px"></InputNumber>
+                    <label>Payment method</label>
+                    <InputSelect @bind-Value=editSale.Transfer class="form-control" style="margin-bottom:10px">
+                        <option value="0">Cash payment</option>
+                        <option value="1">Transfer payment</option>
+                    </InputSelect>
+                </EditForm>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="()=>SaveChanges(editSale)" data-bs-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal Edit -->
+
+<!-- Modal Delete -->
+<div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the record?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="()=>DeleteSale(editSale)" data-bs-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal Delete -->
+@code {
+    public static List<Sale> Sales = new List<Sale>();
+    Sale mySale = new Sale();
+    Sale editSale = new Sale();
+
+    double? TotalCash = 0;
+    double? TotalTransfers = 0;
+    double? TotalMoney = 0;
+    int? TotalSales = 0;
+
+
+    void AddSale(Sale mySale)
+    {
+        Sale newSale = new Sale();
+
+        newSale.Id = Sales.Count() + 1;
+        newSale.Date = mySale.Date;
+        newSale.ClientName = mySale.ClientName;
+        newSale.ProductPrice = mySale.ProductPrice;
+        newSale.Transfer = mySale.Transfer;
+        newSale.CashReceived = mySale.CashReceived;
+        newSale.CashBack = mySale.CashReceived - mySale.ProductPrice;
+
+        Sales.Add(newSale);
+
+        //Clear fields
+        mySale.Id = 0;
+        mySale.Date = DateTime.Now;
+        mySale.ClientName = "";
+        mySale.ProductPrice = null;
+        mySale.CashReceived = null;
+
+        CalculateTotals();
+    }
+
+    void EditSale(Sale mySale)
+    {
+        editSale.Id = mySale.Id;
+        editSale.Date = mySale.Date;
+        editSale.ClientName = mySale.ClientName;
+        editSale.ProductPrice = mySale.ProductPrice;
+        editSale.Transfer = mySale.Transfer;
+        editSale.CashReceived = mySale.CashReceived;
+        editSale.CashBack = mySale.CashBack;
+
+        //Calculate CashBack initially
+        editSale.CashBack = mySale.CashReceived - mySale.ProductPrice;
+        CalculateTotals();
+    }
+
+    void SaveChanges(Sale mySale)
+    {
+        Sale newSale = new Sale();
+        newSale.Id = editSale.Id;
+        newSale.Date = editSale.Date;
+        newSale.ClientName = editSale.ClientName;
+        newSale.ProductPrice = editSale.ProductPrice;
+        newSale.Transfer = editSale.Transfer;
+        newSale.CashReceived = editSale.CashReceived;
+        newSale.CashBack = editSale.CashBack;
+
+        var SaleToDelete = Sales.Where(x => x.Id == mySale.Id).FirstOrDefault();
+        Sales.Remove(SaleToDelete);
+
+        Sales.Add(newSale);
+        Sales = Sales.OrderBy(x => x.Id).ToList();
+        CalculateTotals();
+    }
+
+    void CallToDelete(Sale mySale)
+    {
+        editSale = mySale;
+    }
+
+    void DeleteSale(Sale mySale)
+    {
+        var SaleToDelete = Sales.Where(x => x.Id == mySale.Id).FirstOrDefault();
+        Sales.Remove(SaleToDelete);
+
+        CalculateTotals();
+    }
+
+    void CalculateTotals()
+    {
+        TotalCash = 0;
+        TotalTransfers = 0;
+        TotalSales = 0;
+
+        foreach(var sale in Sales)
+        {
+            if(sale.Transfer == 0)
+            {
+                TotalCash = TotalCash + sale.ProductPrice;
+            }
+            if (sale.Transfer == 1)
+            {
+                TotalTransfers = TotalTransfers + sale.ProductPrice;
+            }
+        }
+
+        //Total money
+        TotalMoney = TotalCash + TotalTransfers;
+
+        //Total number of sales
+        TotalSales = Sales.Count();
+    }
+}

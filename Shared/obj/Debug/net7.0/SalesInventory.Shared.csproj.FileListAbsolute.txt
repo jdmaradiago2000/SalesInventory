@@ -1,0 +1,11 @@
+C:\Users\jmara\source\repos\SalesInventory\Shared\bin\Debug\net7.0\SalesInventory.Shared.deps.json
+C:\Users\jmara\source\repos\SalesInventory\Shared\bin\Debug\net7.0\SalesInventory.Shared.dll
+C:\Users\jmara\source\repos\SalesInventory\Shared\bin\Debug\net7.0\SalesInventory.Shared.pdb
+C:\Users\jmara\source\repos\SalesInventory\Shared\obj\Debug\net7.0\SalesInventory.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jmara\source\repos\SalesInventory\Shared\obj\Debug\net7.0\SalesInventory.Shared.AssemblyInfoInputs.cache
+C:\Users\jmara\source\repos\SalesInventory\Shared\obj\Debug\net7.0\SalesInventory.Shared.AssemblyInfo.cs
+C:\Users\jmara\source\repos\SalesInventory\Shared\obj\Debug\net7.0\SalesInventory.Shared.csproj.CoreCompileInputs.cache
+C:\Users\jmara\source\repos\SalesInventory\Shared\obj\Debug\net7.0\SalesInventory.Shared.dll
+C:\Users\jmara\source\repos\SalesInventory\Shared\obj\Debug\net7.0\refint\SalesInventory.Shared.dll
+C:\Users\jmara\source\repos\SalesInventory\Shared\obj\Debug\net7.0\SalesInventory.Shared.pdb
+C:\Users\jmara\source\repos\SalesInventory\Shared\obj\Debug\net7.0\ref\SalesInventory.Shared.dll
